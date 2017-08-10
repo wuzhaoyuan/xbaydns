@@ -1,0 +1,37 @@
+//
+// Include keys file
+//
+include "/etc/rndc.key";
+
+//       
+// Default controls 
+//       
+controls {
+        inet 127.0.0.1 port 953 allow {any;}
+        keys { "rndc-key"; };
+};
+
+options {
+    directory       "${CONF_DIR}";
+    
+    disable-empty-zone "255.255.255.255.IN-ADDR.ARPA";
+    disable-empty-zone "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA";
+    disable-empty-zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA";
+    
+    recursion no;
+    allow-transfer { 127.0.0.1; };
+    allow-update { 127.0.0.1; };
+};
+
+logging {
+        category default {
+                _default_log;
+        };
+
+        channel _default_log  {
+                file "/var/log/named.log";
+                severity info;
+                print-time yes;
+        };
+};
+

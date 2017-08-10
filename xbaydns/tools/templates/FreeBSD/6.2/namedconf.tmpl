@@ -1,0 +1,23 @@
+options {
+    directory       "${CONF_DIR}";
+    pid-file        "/var/run/named/pid";
+    dump-file       "/var/dump/named_dump.db";
+    statistics-file "/var/stats/named.stats";
+
+    recursion no;
+    allow-transfer { 127.0.0.1; };
+    allow-update { 127.0.0.1; };
+};
+
+logging {
+        category default {
+                _default_log;
+        };
+
+        channel _default_log  {
+                file "/var/log/named.log";
+                severity info;
+                print-time yes;
+        };
+};
+

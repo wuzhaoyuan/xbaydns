@@ -1,0 +1,30 @@
+options {
+    directory       "${CONF_DIR}";
+    pid-file        "/var/run/named/pid";
+    dump-file       "/var/dump/named_dump.db";
+    statistics-file "/var/stats/named.stats";
+
+    // These zones are already covered by the empty zones listed below.
+    // If you remove the related empty zones below, comment these lines out.
+
+    disable-empty-zone "255.255.255.255.IN-ADDR.ARPA";
+    disable-empty-zone "0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA";
+    disable-empty-zone "1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA";
+
+    recursion no;
+    allow-transfer { 127.0.0.1; };
+    allow-update { 127.0.0.1; };
+};
+
+logging {
+        category default {
+                _default_log;
+        };
+
+        channel _default_log  {
+                file "/var/log/named.log";
+                severity info;
+                print-time yes;
+        };
+};
+

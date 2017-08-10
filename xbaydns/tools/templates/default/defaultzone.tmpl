@@ -1,0 +1,122 @@
+zone "." { type hint; file "named.root"; };
+
+// RFC 1912
+zone "localhost"        { type master; file "master/localhost-forward.db"; };
+zone "127.in-addr.arpa" { type master; file "master/localhost-reverse.db"; };
+zone "255.in-addr.arpa" { type master; file "master/empty.db"; };
+
+// RFC 1912-style zone for IPv6 localhost address
+zone "0.ip6.arpa"       { type master; file "master/localhost-reverse.db"; };
+
+// "This" Network (RFCs 1912 and 3330)
+zone "0.in-addr.arpa"           { type master; file "master/empty.db"; };
+
+// IANA Reserved - Unlikely to ever be assigned
+zone "1.in-addr.arpa"           { type master; file "master/empty.db"; };
+zone "2.in-addr.arpa"           { type master; file "master/empty.db"; };
+zone "223.in-addr.arpa"         { type master; file "master/empty.db"; };
+
+// Public Data Networks (RFC 3330)
+zone "14.in-addr.arpa"          { type master; file "master/empty.db"; };
+
+// Private Use Networks (RFC 1918)
+zone "10.in-addr.arpa"          { type master; file "master/empty.db"; };
+zone "16.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "17.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "18.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "19.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "20.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "21.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "22.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "23.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "24.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "25.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "26.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "27.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "28.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "29.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "30.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "31.172.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "168.192.in-addr.arpa"     { type master; file "master/empty.db"; };
+
+// Link-local/APIPA (RFCs 3330 and 3927)
+zone "254.169.in-addr.arpa"     { type master; file "master/empty.db"; };
+
+// TEST-NET for Documentation (RFC 3330)
+zone "2.0.192.in-addr.arpa"     { type master; file "master/empty.db"; };
+
+// Router Benchmark Testing (RFC 3330)
+zone "18.198.in-addr.arpa"      { type master; file "master/empty.db"; };
+zone "19.198.in-addr.arpa"      { type master; file "master/empty.db"; };
+
+// IANA Reserved - Old Class E Space
+zone "240.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "241.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "242.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "243.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "244.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "245.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "246.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "247.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "248.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "249.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "250.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "251.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "252.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "253.in-addr.arpa"         { type master; file "master/empty.db"; };
+zone "254.in-addr.arpa"         { type master; file "master/empty.db"; };
+
+// IPv6 Unassigned Addresses (RFC 4291)
+zone "1.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "3.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "4.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "5.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "6.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "7.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "8.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "9.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "a.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "b.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "c.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "d.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "e.ip6.arpa"               { type master; file "master/empty.db"; };
+zone "0.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "1.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "2.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "3.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "4.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "5.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "6.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "7.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "8.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "9.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "a.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "b.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "0.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "1.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "2.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "3.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "4.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "5.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "6.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "7.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+
+// IPv6 ULA (RFC 4193)
+zone "c.f.ip6.arpa"             { type master; file "master/empty.db"; };
+zone "d.f.ip6.arpa"             { type master; file "master/empty.db"; };
+
+// IPv6 Link Local (RFC 4291)
+zone "8.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "9.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "a.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "b.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+
+// IPv6 Deprecated Site-Local Addresses (RFC 3879)
+zone "c.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "d.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "e.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+zone "f.e.f.ip6.arpa"           { type master; file "master/empty.db"; };
+
+// IP6.INT is Deprecated (RFC 4159)
+zone "ip6.int"                  { type master; file "master/empty.db"; };
+
