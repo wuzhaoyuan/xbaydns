@@ -10,13 +10,14 @@ import os
 import platform
 import pwd
 import sys
+import errno
 
 system, _, release, version, machine, processor = platform.uname()
 system, release, version = platform.system_alias(system, release,version)
 release = re.compile(r"^\d+.\d+").search(release).group()
 
 # 安装路径，是否能传进来？暂时写成根据相对路径
-installdir = os.path.dirname(os.path.realpath(__file__)) + "/.."
+installdir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 # 这里记录了bind启动的chroot根目录
 chroot_path = "/var/named"
 # 这里记录了named.conf所存储的路径
@@ -56,11 +57,11 @@ elif (system == "OpenBSD"):
         pass
 elif (system == "Linux"):
     # 操作系统为Linux
-    named_user = "bind"
-    chroot_path = "/"
-    namedconf = "/etc/bind"
+    named_user = "named"
+    chroot_path = "/var/named"
+    namedconf = "/etc"
 try:
-    named_uid = pwd.getpwnam(named_user)[2]
+    named_uid = pwd.getpwnam('root')[2]
 except KeyError:
     print "No such a user %s. I'll exit."%named_user
     sys.exit(errno.EINVAL)
@@ -71,3 +72,8 @@ default_zone_file = "defaultzone.conf"
 default_soa = 'localhost'
 default_ns = 'ns1.sina.com.cn'
 default_admin = 'huangdong@gmail.com'
+
+BASEDIR = installdir
+TMPL_DIR = BASEDIR + "/tools/templates"
+TMPL_DEF_DIR = "%s/default"%TMPL_DIR
+TMPL_PLAT_DIR = "%s/%s/%s"%(TMPL_DIR, system, release)

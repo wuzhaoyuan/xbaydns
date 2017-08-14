@@ -168,13 +168,13 @@ def usage():
     print "usage: %s [-bc]"%__file__
     
 def main():
-    # check root
+    # check root 判断是否为root用户
     if os.getuid() != 0:
         print "You need be root to run this program."
         return errno.EPERM
     # parse options
     try:
-        opts = getopt.getopt(sys.argv[1:], "b:c:")
+        opts = getopt.getopt(sys.argv[1:], "b:c:")  #获取参数
     except getopt.GetoptError:
         usage()
         return errno.EINVAL
@@ -188,7 +188,7 @@ def main():
         elif optname == "-b":
             backup = True
             backdir = optval
-    # backup
+    # backup 做备份
     if backup == True:
         realconfdir = chrootdir + sysconf.namedconf
         if os.path.isdir(realconfdir) == True:
@@ -215,5 +215,8 @@ def main():
     else:
         return 0
 
+
 if __name__ == '__main__':
-    sys.exit(main())
+    #sys.exit(main())
+    print BASEDIR
+    print TMPL_DIR

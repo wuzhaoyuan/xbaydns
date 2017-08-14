@@ -5,7 +5,7 @@ namedconf.py
 Created by QingFeng on 2007-11-22.
 Copyright (c) 2007 yanxu. All rights reserved.
 """
-
+import sys
 import logging.config
 from xbaydnsweb.web.utils import saveAllConf
 

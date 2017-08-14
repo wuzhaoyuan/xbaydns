@@ -31,7 +31,7 @@ def pathIsExists(func):
 class NamedConf(object):
     def __init__(self):
         self.acls={}
-        self.views={}
+        self.views={'1':'test1','2':'test2'}
         self.domains={}
         self.acl_include=[]
     '''
@@ -104,8 +104,8 @@ key "%s" {
     '''
     load view(view,match-client) 更新view 
 
-    参数说明： 
-    view 增加的view的名称 
+    参数说明：
+    view 增加的view的名称
     match-client 匹配于该view的acl汇总
     '''
     def loadViewKey(self,view):
@@ -113,9 +113,9 @@ key "%s" {
         return {key:self.genSecret(key)}
     
     '''
-    del view(view) 删除view 
+    del view(view) 删除view
 
-    参数说明： 
+    参数说明：
     view 增加的view的名称
     '''
     def delView(self,view):
@@ -156,7 +156,7 @@ key "%s" {
         return '%s%s%s01'%(d.year,str(d.month).zfill(2),str(d.day).zfill(2))
     
     '''
-    del domain(domain) 删除一个DNS域 
+    del domain(domain) 删除一个DNS域
     参数说明： 
         domain 需要删除的DNS域名
     '''
@@ -262,3 +262,9 @@ $TTL 360 ;10 minute
         """重启named"""
         os.system(sysconf.namedstop)
         return os.system(sysconf.namedstart)
+
+
+if __name__ == '__main__':
+    pass
+    #conf = NamedConf()
+    #print conf.addDomain(domain=['test1.baidu.com','test2.baidu.com'])
