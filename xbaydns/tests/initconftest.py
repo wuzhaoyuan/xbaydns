@@ -106,8 +106,8 @@ class InitConfTest(basetest.BaseTestCase):
         log.debug("create tmpdir is:%s"%tmpdir)
         self.assertTrue( os.path.isdir("%s/%s/acl"%(tmpdir, sysconf.namedconf)) )
         self.assertTrue( os.path.isdir("%s/%s/dynamic"%(tmpdir, sysconf.namedconf)) )
-        self.assertTrue( os.path.isdir("%s/%s/master"%(tmpdir, sysconf.namedconf)) )
-        self.assertTrue( os.path.isdir("%s/%s/slave"%(tmpdir, sysconf.namedconf)) )
+        self.assertTrue( os.path.isdir("%s/%s/main"%(tmpdir, sysconf.namedconf)) )
+        self.assertTrue( os.path.isdir("%s/%s/subordinate"%(tmpdir, sysconf.namedconf)) )
         shutil.rmtree(tmpdir)
 
     def test_create_conf(self):

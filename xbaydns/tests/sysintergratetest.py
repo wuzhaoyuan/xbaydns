@@ -45,11 +45,11 @@ class SysIntergrate_ConfigInit_Test(basetest.BaseTestCase):
         self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"defaultzone.conf")))
         self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"acl")))
         self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"acl","acldef.conf")))
-        self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"master")))
-        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"master","empty.db")))
-        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"master","localhost-forward.db")))
-        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"master","localhost-reverse.db")))
-        self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"slave")))
+        self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"main")))
+        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"main","empty.db")))
+        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"main","localhost-forward.db")))
+        self.assertTrue(os.path.isfile(os.path.join(sysconf.chroot_path,sysconf.namedconf,"main","localhost-reverse.db")))
+        self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"subordinate")))
         self.assertTrue(os.path.isdir(os.path.join(sysconf.chroot_path,sysconf.namedconf,"dynamic")))
 
     def _add_default_conf(self):

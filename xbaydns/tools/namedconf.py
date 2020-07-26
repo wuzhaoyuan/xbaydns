@@ -134,7 +134,7 @@ key "%s" {
                 fname=self.getDomainFileName(d,view)
                 s='''
     zone "%(domain)s" {
-        type master;
+        type main;
         file "%(fname)s";
     };'''%{'domain':d,
            'fname':fname}
