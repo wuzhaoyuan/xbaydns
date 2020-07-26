@@ -119,9 +119,9 @@ def create_destdir():
     os.makedirs("%s/%s/acl"%(tmpdir, sysconf.namedconf))
     os.makedirs("%s/%s/dynamic"%(tmpdir, sysconf.namedconf))
     os.chown("%s/%s/dynamic"%(tmpdir, sysconf.namedconf), sysconf.named_uid, 0)
-    os.mkdir("%s/%s/master"%(tmpdir, sysconf.namedconf))
-    os.mkdir("%s/%s/slave"%(tmpdir, sysconf.namedconf))
-    os.chown("%s/%s/slave"%(tmpdir, sysconf.namedconf), sysconf.named_uid, 0)
+    os.mkdir("%s/%s/main"%(tmpdir, sysconf.namedconf))
+    os.mkdir("%s/%s/subordinate"%(tmpdir, sysconf.namedconf))
+    os.chown("%s/%s/subordinate"%(tmpdir, sysconf.namedconf), sysconf.named_uid, 0)
     return tmpdir
 
 def create_conf(tmpdir):
@@ -142,9 +142,9 @@ def create_conf(tmpdir):
         tmpfile = open("%s/%s/named.root"%(tmpdir, sysconf.namedconf), "w")
         tmpfile.write(namedroot)
         tmpfile.close()
-        shutil.copyfile(TMPL_EMPTY_DB, "%s/%s/master/empty.db"%(tmpdir, sysconf.namedconf))
-        shutil.copyfile(TMPL_LOCALHOST_FORWARD_DB, "%s/%s/master/localhost-forward.db"%(tmpdir, sysconf.namedconf))
-        shutil.copyfile(TMPL_LOCALHOST_REVERSE_DB, "%s/%s/master/localhost-reverse.db"%(tmpdir, sysconf.namedconf))
+        shutil.copyfile(TMPL_EMPTY_DB, "%s/%s/main/empty.db"%(tmpdir, sysconf.namedconf))
+        shutil.copyfile(TMPL_LOCALHOST_FORWARD_DB, "%s/%s/main/localhost-forward.db"%(tmpdir, sysconf.namedconf))
+        shutil.copyfile(TMPL_LOCALHOST_REVERSE_DB, "%s/%s/main/localhost-reverse.db"%(tmpdir, sysconf.namedconf))
         shutil.copyfile(TMPL_RNDC_KEY, "%s/%s/rndc.key"%(tmpdir, sysconf.namedconf))
         os.chmod("%s/%s/rndc.key"%(tmpdir, sysconf.namedconf),0600)
         os.chown("%s/%s/rndc.key"%(tmpdir, sysconf.namedconf),sysconf.named_uid,0)
@@ -205,8 +205,8 @@ def main():
     log.debug(tmpdir)
     #清理旧世界
     shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"acl"),ignore_errors=True)
-    shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"master"),ignore_errors=True)
-    shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"slave"),ignore_errors=True)
+    shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"main"),ignore_errors=True)
+    shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"subordinate"),ignore_errors=True)
     shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"dynamic"),ignore_errors=True)
     shutil.rmtree(os.path.join(sysconf.chroot_path,sysconf.namedconf,"view"),ignore_errors=True)
     if create_conf(tmpdir) == False or install_conf(tmpdir, chrootdir) == False:

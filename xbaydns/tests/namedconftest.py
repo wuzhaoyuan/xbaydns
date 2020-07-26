@@ -72,11 +72,11 @@ class NamedConfTest(basetest.BaseTestCase):
         cmd = self.nc.addDomain(['sina.com.cn','mail.sina.com.cn'])
         self.assertEqual(cmd.replace("  ", "").replace("\n","").strip(),'''
                 zone "sina.com.cn" {
-                    type master;
+                    type main;
                     file "dynamic/internal.sina.com.cn.file";
                 };
                 zone "mail.sina.com.cn" {
-                    type master;
+                    type main;
                     file "dynamic/internal.mail.sina.com.cn.file";
                 };
                 '''.replace("  ", "").replace("\n","").strip())
